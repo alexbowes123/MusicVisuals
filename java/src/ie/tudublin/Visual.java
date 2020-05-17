@@ -3,8 +3,10 @@ package ie.tudublin;
 import processing.core.PApplet;
 import ddf.minim.*;
 import ddf.minim.analysis.FFT;
+import processing.data.TableRow;
 
-public abstract class Visual extends PApplet
+
+public class Visual extends PApplet
 {
 	private int frameSize = 512;
 	private int sampleRate = 44100;
@@ -21,6 +23,19 @@ public abstract class Visual extends PApplet
 	private float amplitude  = 0;
 	private float smothedAmplitude = 0;
 
+	
+	public int width = 900;
+    public int height = 720;
+    public int centX = width/2;
+	public int centY = height/2;
+
+
+	public float planetX = centX;
+	public float planetY = centY;
+	public float planetH = centY/2 - 130;
+	public float planetW = centX - 130;
+	public int i;
+	
 	
 	
 	public void startMinim() 
@@ -138,5 +153,58 @@ public abstract class Visual extends PApplet
 
 	public AudioPlayer getAudioPlayer() {
 		return ap;
+	}
+
+	public int getCentX() {
+		return centX;
+	}
+
+	public void setCentX(int centX) {
+		this.centX = centX;
+	}
+
+	public int getCentY() {
+		return centY;
+	}
+
+	public void setCentY(int centY) {
+		this.centY = centY;
+	}
+
+	public int getI() {
+		return i;
+	}
+
+	public void setI(int i) {
+		this.i = i;
+	}
+
+	public class Star {
+		private int starX;
+		private int starY;
+
+		public Star(TableRow row) {
+		}
+
+		public int getStarX() {
+			return starX;
+		}
+
+		public void setStarX(int starX) {
+			this.starX = starX;
+		}
+
+		public int getStarY() {
+			return starY;
+		}
+
+		public void setStarY(int starY) {
+			this.starY = starY;
+		}
+
+		public Star(int starX, int starY) {
+			this.starX = starX;
+			this.starY = starY;	
+		}
 	}
 }
